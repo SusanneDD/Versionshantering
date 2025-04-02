@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Om Projektet</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .info-container {
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(5px);
+      border-radius: 20px;
+      padding: 2.5rem;
+      max-width: 600px;
+      margin: 5rem auto;
+      box-shadow: 0 0 30px rgba(255, 0, 255, 0.3);
+      animation: fadeIn 1.2s ease-out;
+    }
+
+    .info-container h1 {
+      font-size: 2.2rem;
+      text-shadow: 0 0 10px #ff00ea;
+      margin-bottom: 1.5rem;
+    }
+
+    .info-container p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .info-container a {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.6rem 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      color: white;
+      text-decoration: none;
+      box-shadow: 0 0 10px #ff00ff;
+    }
+
+    .info-container a:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="stars"></div>
+  <div class="info-container">
+    <h1>🌌 Om Stjärnvision</h1>
+    <p><strong>Stjärnvision</strong> är en interaktiv och visuellt levande webbapplikation som ger dig ett dagligt
+      horoskop baserat på ditt stjärntecken.</p>
+    <p>🔮 Med hjälp av <strong>API Ninjas</strong> hämtar sidan ett nytt horoskop varje dag – snabbt, smidigt och helt
+      automatiskt.</p>
+    <p>🌠 Projektet är byggt med <strong>HTML, CSS och JavaScript</strong> och innehåller animerade stjärnhimlar,
+      responsiv design och stöd för både mörkt och ljust läge.</p>
+    <p>🚀 Syftet är att kombinera funktionalitet och estetik – för att skapa en magisk användarupplevelse i en
+      rymdinspirerad miljö.</p>
+    <p>🧪 Utvecklingen är pågående och projektet är öppet för vidare förbättringar och kreativ expansion.</p>
+
+    <a href="index.html">⬅️ Till startsidan</a>
+
+  </div>
+  <script type="module" src="js/constellation-background.js"></script>
+
+</body>
+
+</html>

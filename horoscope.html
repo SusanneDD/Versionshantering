@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dagens Horoskop</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    
+
+    .anime-glow {
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 5px #a30fe8, 0 0 10px #de20f3; }
+      to { text-shadow: 0 0 20px #d008ef, 0 0 40px #d506f0; }
+    }
+
+    nav a {
+      display: inline-block;
+      margin: 1.5rem 1rem 0;
+      padding: 0.6rem 1rem;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      color: rgb(3, 3, 3);
+      box-shadow: 0 0 10px #ff00f2;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <div class="stars"></div>
+
+  <div class="shooting-star" style="top: 5%; left: 10%; animation-delay: 1s;"></div>
+  <div class="shooting-star" style="top: 20%; left: 25%; animation-delay: 3s;"></div>
+  <div class="shooting-star" style="top: 40%; left: 50%; animation-delay: 5s;"></div>
+  <div class="shooting-star" style="top: 70%; left: 70%; animation-delay: 7s;"></div>
+
+  <header>
+    <h1 class="anime-glow">🔭 Ditt horoskop idag</h1>
+    <button id="toggle-theme">🌙</button>
+  </header>
+
+  <main id="horoscope-container">
+    <div class="spinner"></div>
+    <template id="horoscope-template">
+      <div class="card anime-glow">
+        <h2><span id="icon"></span> <span id="sign"></span> – <span id="date"></span></h2>
+        <p><strong>Horoskop:</strong> <span id="horoscope"></span></p>
+        <button id="copy-btn">📋 Kopiera horoskop</button>
+      </div>
+    </template>
+  </main>
+
+  <nav>
+    <a href="index.html">⬅️ Tillbaka</a>
+    <a href="info.html">ℹ️ Om projektet</a>
+  </nav>
+
+  <script src="js/config.js"></script>
+  <script src="js/horoscope.js"></script>
+  <script>
+    const toggleBtn = document.getElementById("toggle-theme");
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("light-mode");
+      localStorage.setItem("theme", document.body.classList.contains("light-mode") ? "light" : "dark");
+    });
+
+    const saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.body.classList.add("light-mode");
+    }
+  </script>
+  <script type="module" src="js/constellation-background.js"></script>
+
+</body>
+</html>
+
