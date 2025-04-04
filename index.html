@@ -44,7 +44,7 @@
 
         <script>
             document.getElementById('go-button').addEventListener('click', () => {
-                const sign = document.getElementById('zodiac-select').value
+                let sign = document.getElementById('zodiac-select').value // HEJSAN MVH ALRIK HE :)
                 if (sign) {
                     localStorage.setItem('selectedSign', sign)
                     window.location.href = 'horoscope.html'
