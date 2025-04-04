@@ -38,13 +38,12 @@
 
             <nav>
                 <a href="info.html">ℹ️ Om projektet</a>
-                <a href="info.html">ℹ️ Om projektet</a>
             </nav>
         </div>
 
         <script>
             document.getElementById('go-button').addEventListener('click', () => {
-                const sign = document.getElementById('select').value
+                const sign = document.getElementById('zodiac-select').value
                 if (sign) {
                     localStorage.setItem('selectedSign', sign)
                     window.location.href = 'horoscope.html'
