@@ -31,10 +31,8 @@
                     <option value="aquarius">♒ Vattumannen</option>
                     <option value="pisces">♓ Fiskarna</option>
                 </select>
-
                 <button id="go-button">✨ Visa horoskop</button>
                 <button id="resume-button" style="display: none">🌌 Visa senaste</button>
-
                 <div id="last-selected"></div>
             </main>
 
@@ -52,23 +50,19 @@
                     window.location.href = 'horoscope.html'
                 } else alert('Vänligen välj ett stjärntecken.')
             })
-
             const last = localStorage.getItem('selectedSign')
             if (last) {
                 document.getElementById('last-selected').textContent = `Senaste valda: ${last}`
                 document.getElementById('resume-button').style.display = 'inline-block'
             }
-
             document.getElementById('resume-button').addEventListener('click', () => {
                 window.location.href = 'horoscope.html'
             })
-
             const toggleBtn = document.getElementById('toggle-theme')
             toggleBtn.addEventListener('click', () => {
                 document.body.classList.toggle('light-mode')
                 localStorage.setItem('theme', document.body.classList.contains('light-mode') ? 'light' : 'dark')
             })
-
             const savedTheme = localStorage.getItem('theme')
             if (savedTheme === 'light') document.body.classList.add('light-mode')
         </script>
