@@ -1,83 +1,76 @@
 <!DOCTYPE html>
 <html lang="sv">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Stjärnvision | Välj stjärntecken</title>
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Stjärnvision | Välj stjärntecken</title>
-  <link rel="stylesheet" href="css/style.css" />
-</head>
+    <body>
+        <div class="stars"></div>
+        <div class="hero">
+            <header>
+                <h1>🔮 Välj ditt stjärntecken</h1>
+                <button id="toggle-theme">🌗 Byt tema</button>
+            </header>
 
-<body>
-  <div class="stars"></div>
-  <div class="hero">
-    <header>
-      <h1>🔮 Välj ditt stjärntecken</h1>
-      <button id="toggle-theme">🌗 Byt tema</button>
-    </header>
+            <main>
+                <select id="zodiac-select">
+                    <option value="">-- Välj stjärntecken --</option>
+                    <option value="aries">♈ Väduren</option>
+                    <option value="taurus">♉ Oxen</option>
+                    <option value="gemini">♊ Tvillingarna</option>
+                    <option value="cancer">♋ Kräftan</option>
+                    <option value="leo">♌ Lejonet</option>
+                    <option value="virgo">♍ Jungfrun</option>
+                    <option value="libra">♎ Vågen</option>
+                    <option value="scorpio">♏ Skorpionen</option>
+                    <option value="sagittarius">♐ Skytten</option>
+                    <option value="capricorn">♑ Stenbocken</option>
+                    <option value="aquarius">♒ Vattumannen</option>
+                    <option value="pisces">♓ Fiskarna</option>
+                </select>
 
-    <main>
-      <select id="zodiac-select">
-        <option value="">-- Välj stjärntecken --</option>
-        <option value="aries">♈ Väduren</option>
-        <option value="taurus">♉ Oxen</option>
-        <option value="gemini">♊ Tvillingarna</option>
-        <option value="cancer">♋ Kräftan</option>
-        <option value="leo">♌ Lejonet</option>
-        <option value="virgo">♍ Jungfrun</option>
-        <option value="libra">♎ Vågen</option>
-        <option value="scorpio">♏ Skorpionen</option>
-        <option value="sagittarius">♐ Skytten</option>
-        <option value="capricorn">♑ Stenbocken</option>
-        <option value="aquarius">♒ Vattumannen</option>
-        <option value="pisces">♓ Fiskarna</option>
-      </select>
+                <button id="go-button">✨ Visa horoskop</button>
+                <button id="resume-button" style="display: none">🌌 Visa senaste</button>
 
-      <button id="go-button">✨ Visa horoskop</button>
-      <button id="resume-button" style="display: none;">🌌 Visa senaste</button>
+                <div id="last-selected"></div>
+            </main>
 
-      <div id="last-selected"></div>
-    </main>
+            <nav>
+                <a href="info.html">ℹ️ Om projektet</a>
+            </nav>
+        </div>
 
-    <nav>
-      <a href="info.html">ℹ️ Om projektet</a>
-    </nav>
-  </div>
+        <script>
+            document.getElementById('go-button').addEventListener('click', () => {
+                const sign = document.getElementById('zodiac-select').value
+                if (sign) {
+                    localStorage.setItem('selectedSign', sign)
+                    window.location.href = 'horoscope.html'
+                } else alert('Vänligen välj ett stjärntecken.')
+            })
 
-  <script>
-    document.getElementById("go-button").addEventListener("click", () => {
-      const sign = document.getElementById("zodiac-select").value;
-      if (sign) {
-        localStorage.setItem("selectedSign", sign);
-        window.location.href = "horoscope.html";
-      } else {
-        alert("Vänligen välj ett stjärntecken.");
-      }
-    });
+            const last = localStorage.getItem('selectedSign')
+            if (last) {
+                document.getElementById('last-selected').textContent = `Senaste valda: ${last}`
+                document.getElementById('resume-button').style.display = 'inline-block'
+            }
 
-    const last = localStorage.getItem("selectedSign");
-    if (last) {
-      document.getElementById("last-selected").textContent = `Senaste valda: ${last}`;
-      document.getElementById("resume-button").style.display = "inline-block";
-    }
+            document.getElementById('resume-button').addEventListener('click', () => {
+                window.location.href = 'horoscope.html'
+            })
 
-    document.getElementById("resume-button").addEventListener("click", () => {
-      window.location.href = "horoscope.html";
-    });
+            const toggleBtn = document.getElementById('toggle-theme')
+            toggleBtn.addEventListener('click', () => {
+                document.body.classList.toggle('light-mode')
+                localStorage.setItem('theme', document.body.classList.contains('light-mode') ? 'light' : 'dark')
+            })
 
-    const toggleBtn = document.getElementById("toggle-theme");
-    toggleBtn.addEventListener("click", () => {
-      document.body.classList.toggle("light-mode");
-      localStorage.setItem("theme", document.body.classList.contains("light-mode") ? "light" : "dark");
-    });
-
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "light") {
-      document.body.classList.add("light-mode");
-    }
-  </script>
-  <script type="module" src="js/constellation-background.js"></script>
-
-</body>
-
+            const savedTheme = localStorage.getItem('theme')
+            if (savedTheme === 'light') document.body.classList.add('light-mode')
+        </script>
+        <script type="module" src="js/constellation-background.js"></script>
+    </body>
 </html>
